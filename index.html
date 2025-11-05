@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeIQ Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+</head>
+<body class="text-black min-h-screen flex transition-colors duration-500">
+  <aside class="w-60 min-h-screen bg-black/60 backdrop-blur-lg text-gray-200 p-6 hidden md:block">
+    <h1 class="text-2xl font-extrabold mb-10 text-neon">⚡ HomeIQ</h1>
+    <nav class="flex flex-col gap-6">
+      <a href="index.html">🏡 Home</a>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="devices.html">💡 Devices</a>
+      <a href="rules.html">⚙️ Rules</a>
+      <a href="logs.html">📜 Logs</a>
+      <a href="settings.html">⚡ Settings</a>
+    </nav>
+    <button id="theme-toggle" class="mt-10 px-2 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition shadow-lg w-full">
+      🌙
+    </button>
+  </aside>
+
+  <main class="flex-1 flex flex-col">
+    <header class="flex justify-between items-center px-6 py-4 bg-black/40 backdrop-blur-lg shadow-md">
+      <h1 class="text-2xl font-bold text-pink-400">🏠 Dashboard</h1>
+      <div class="flex items-center gap-4">
+        <input type="text" placeholder="Search devices..." 
+               class="px-3 py-2 rounded-lg bg-white/10 border border-gray-300 dark:border-gray-700 focus:ring focus:ring-pink-400 outline-none"/>
+        <button class="p-2 rounded-full bg-purple-600 hover:bg-purple-700">🔔</button>
+        <img src="https://i.pravatar.cc/40" class="w-10 h-10 rounded-full border-2 border-cyan-400"/>
+      </div>
+    </header>
+
+    <section class="grid gap-6 p-6 md:grid-cols-2 lg:grid-cols-4">
+      <div class="device-card border-pink-500">
+        <h3 class="text-xl font-bold">⚡ Energy Usage</h3>
+        <p class="mt-2">Today: <span class="font-bold">12.5 kWh</span></p>
+        <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded mt-2">
+          <div class="bg-pink-500 h-2 rounded" style="width: 45%"></div>
+        </div>
+      </div>
+
+      <div class="device-card border-cyan-500">
+        <h3 class="text-xl font-bold">💡 Active Devices</h3>
+        <p class="mt-2"><span class="font-bold">7</span> running now</p>
+        <button class="mt-3 neon-btn cyan">Manage</button>
+      </div>
+
+      <div class="device-card border-green-500">
+        <h3 class="text-xl font-bold">🌡️ Temperature</h3>
+        <p class="mt-2"><span class="font-bold">26°C</span> Inside</p>
+        <input type="range" min="16" max="32" value="26" 
+               class="w-full mt-3 accent-green-500"/>
+      </div>
+  
+      <div class="device-card border-yellow-500">
+        <h3 class="text-xl font-bold">🔔 Alerts</h3>
+        <p class="mt-2">No critical alerts</p>
+        <button class="mt-3 neon-btn yellow">View Logs</button>
+      </div>
+    </section>
+
+    <section class="p-6">
+      <h3 class="text-2xl font-bold mb-4">🎬 Quick Scenes</h3>
+      <div class="flex flex-wrap gap-4">
+        <button class="neon-btn pink">Movie Night</button>
+        <button class="neon-btn cyan">Work Mode</button>
+        <button class="neon-btn green">Sleep Mode</button>
+        <button class="neon-btn yellow">Party Time</button>
+      </div>
+    </section>
+
+    <section class="p-6">
+      <h3 class="text-2xl font-bold mb-4">📜 Recent Activity</h3>
+      <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+        <li>💡 Living Room Light turned ON</li>
+        <li>🔒 Door Locked</li>
+        <li>❄️ AC switched OFF</li>
+      </ul>
+    </section>
+
+    <footer class="text-center py-6 text-gray-500 dark:text-gray-400 bg-black/30 backdrop-blur-lg">
+      Make Your House a Home, a SmartHome © 2025
+    </footer>
+  </main>
+
+  <script src="frontend.js"></script>
+</body>
+</html>

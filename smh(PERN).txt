@@ -1,0 +1,51 @@
+# Phase 1 – Project Setup
+--> Goal: Professional repo structure, clean boilerplate.
+
+* smart-home-sim/
+    │── backend/         # Python (Flask/FastAPI)
+    │   ├── app.py
+    │   ├── models.py
+    │   ├── routes/
+    │   ├── database.py
+    │── frontend/        # React + Tailwind
+    │── docker/          # (later) docker-compose.yml for backend+db
+    │── README.md
+    │── .env
+
+* Setup PostgreSQL (local with pgAdmin or cloud like Supabase).
+* Flask/FastAPI backend with DB connection.
+* React frontend with Tailwind.
+==> Deliverable: Backend + frontend both spin up.
+
+# Phase 2 – Backend APIs (Python + PostgreSQL)
+--> Goal: Expose REST APIs for devices, rules, logs.
+* POST /devices: add device
+* GET /devices: list devices
+* POST /rules: add automation rule
+* GET /rules: list rules
+* GET /logs: fetch logs
+* Use SQLAlchemy/psycopg2 to handle queries.
+==> Deliverable: Fully working CRUD backend tested with Postman.
+
+# Phase 3 – Frontend UI/UX
+--> Goal: Professional dashboard using React + Tailwind.
+* Sidebar navigation: Dashboard | Devices | Rules | Logs
+* Devices page: Add/list devices
+* Rules page: Rule builder (IF condition, THEN action)
+* Logs page: Real-time event logs (start with polling, later WebSockets).
+==> Deliverable: Clickable, clean UI fetching data from backend.
+
+# Phase 4 – Real-Time Features
+--> Goal: Add life to the simulator.
+* Use WebSockets (Flask-SocketIO or FastAPI WebSockets) for instant device/rule updates.
+* Logs update in real-time when rules trigger.
+* Device states toggle live (light ON/OFF).
+==> Deliverable: Real-time dashboard.
+
+# Phase 5 – Professional Polish
+* Authentication (JWT, user profiles).
+* Responsive, dark mode.
+* Dockerize backend + DB.
+* Deploy (frontend on Vercel, backend on Render, DB on Supabase).
+* Documentation (Swagger/OpenAPI for backend, README with diagrams).
+==> Deliverable: Portfolio-ready project.

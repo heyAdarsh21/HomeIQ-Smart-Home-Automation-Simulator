@@ -1,0 +1,139 @@
+<!-- <!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SmartHome</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="frontend.js" defer></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark')
+    }
+  </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+  <header class="flex justify-between items-center px-6 py-4 shadow-md bg-white dark:bg-gray-900">
+    <h1 class="text-2xl font-bold">⚡SmartHome</h1>
+    <div class="flex items-center gap-4">
+      <button id="theme-toggle">🌙 </button>
+      <img src="" class="w-10 h-10 rounded-full border-2 border-purple-500">
+    </div>
+  </header>
+
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white dark:bg-gray-900 shadow-lg p-6 hidden md:block">
+      <nav class="flex flex-col gap-6">
+        <a href="index.html" class="hover:text-pink-400 transition">🏡 Home</a>
+        <a href="dashboard.html" class="block py-2 px-4 rounded-lg bg-purple-500 text-white">🏠 Dashboard</a>
+        <a href="devices.html" class="block py-2 px-4 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800">💡 Devices</a>
+        <a href="rules.html" class="block py-2 px-4 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800">⚙️ Rules</a>
+        <a href="logs.html" class="block py-2 px-4 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800">📜 Logs</a>
+      </nav>
+    </aside>
+    <main class="flex-1 p-6 space-y-8">
+      <h2 class="text-2xl font-bold">Dashboard Overview</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900 border-l-4 border-purple-500">
+          <h3 class="font-semibold">Devices</h3>
+          <p class="text-3xl font-bold mt-2">12</p>
+        </div>
+        <div class="p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900 border-l-4 border-cyan-500">
+          <h3 class="font-semibold">Active Rules</h3>
+          <p class="text-3xl font-bold mt-2">7</p>
+        </div>
+        <div class="p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900 border-l-4 border-green-500">
+          <h3 class="font-semibold">Logs</h3>
+          <p class="text-3xl font-bold mt-2">154</p>
+        </div>
+        <div class="p-6 rounded-xl shadow-lg bg-white dark:bg-gray-900 border-l-4 border-pink-500">
+          <h3 class="font-semibold">Users</h3>
+          <p class="text-3xl font-bold mt-2">3</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html> -->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HomeIQ : Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen text-gray-800 dark:text-gray-100">
+  <div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-black/60 text-gray-200 p-6 hidden md:block">
+      <h1 class="text-2xl font-extrabold mb-6 text-pink-400">⚡ SmartHome</h1>
+      <nav class="flex flex-col gap-4 text-sm">
+        <a href="/" class="hover:text-white">🏠 Dashboard</a>
+        <a href="#" class="hover:text-white">💡 Devices</a>
+        <a href="#" class="hover:text-white">⚙️ Rules</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 p-6">
+      <header class="flex justify-between items-center mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-pink-400">🏠 Dashboard</h2>
+          <div class="text-sm text-gray-500">Active: <strong>{{ active_count }}</strong> — Energy (active): <strong>{{ total_energy }} W</strong></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <input id="search" placeholder="Search devices..." class="px-3 py-2 rounded border bg-white/5" />
+        </div>
+      </header>
+
+      <!-- Devices grid -->
+      <section class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {% for d in devices %}
+        <div class="p-4 rounded-lg shadow bg-white dark:bg-gray-800 flex flex-col justify-between">
+          <div>
+            <div class="text-sm text-gray-400">ID {{ d.id }}</div>
+            <h3 class="text-lg font-semibold mt-1">{{ d.name }}</h3>
+            <div class="text-sm text-gray-500 mt-2">Energy: {{ d.energy_usage }} W</div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm">
+              <span class="px-2 py-1 rounded {{ 'bg-green-100 text-green-800' if d.status else 'bg-red-100 text-red-800' }}">
+                {{ 'ON' if d.status else 'OFF' }}
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="toggle-btn px-3 py-1 rounded text-sm bg-indigo-600 text-white" data-id="{{ d.id }}">
+                Toggle
+              </button>
+              <form method="POST" action="/delete/{{ d.id }}" onsubmit="return confirm('Delete device?');">
+                <button class="px-2 py-1 rounded text-sm bg-red-500 text-white">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+
+      <!-- Add device -->
+      <section class="mt-8">
+        <h3 class="text-xl font-semibold mb-2">➕ Add Device</h3>
+        <form id="add-form" method="POST" action="/add" class="flex gap-2">
+          <input name="name" required placeholder="Device name" class="px-3 py-2 border rounded w-64" />
+          <input name="energy" type="number" placeholder="Energy (W)" class="px-3 py-2 border rounded w-36" />
+          <button type="submit" class="px-4 py-2 rounded bg-purple-600 text-white">Add</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='frontend.js') }}"></script>
+</body>
+</html>

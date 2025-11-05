@@ -1,0 +1,46 @@
+# Phase 1 – Project Setup
+--> Goal: Lay down the project structure with MERN.
+* Create backend server (Node.js + Express).
+* Connect with MongoDB (Atlas cloud DB).
+* Setup React frontend with Vite/CRA + TailwindCSS/Material UI.
+* Organize repo professionally (/client, /server, README.md, .env).
+==> Deliverable: A boilerplate MERN app that runs end-to-end.
+
+# Phase 2 – UI/UX Foundations
+--> Goal: Create a professional, scalable frontend design.
+* Use TailwindCSS + shadcn/ui (modern, minimal, industry standard).
+* Build core pages/components:
+* Dashboard (devices overview)
+* Devices page (list, add, delete)
+* Rules page (create, view rules)
+* Logs page (real-time logs)
+* Apply grid-based layout, navbar, sidebar for pro feel.
+==> Deliverable: Clickable frontend with mock data. Looks top-class even without backend logic.
+
+# Phase 3 – API & Data Flow
+--> Goal: Connect backend and frontend.
+* Build REST APIs:
+* POST /devices: Add device
+* GET /devices: List devices
+* POST /rules: Add rule
+* GET /rules: Fetch rules
+* Connect React frontend with Axios/Fetch to APIs.
+* Store rules/devices in MongoDB.
+==> Deliverable: Real data flows between frontend <-> backend <-> database.
+
+# Phase 4 – Real-Time Interactions
+--> Goal: Make it behave like a true smart-home simulator.
+* Add WebSockets (Socket.io) for live logs + device updates.
+* UI instantly updates when rules are triggered.
+* Design device state cards (lights toggle ON/OFF in UI).
+* Create a rule builder UI (drag/drop or simple form).
+==> Deliverable: A working prototype with automation rules triggering UI changes in real time.
+
+# Phase 5 – Professional Polish
+--> Goal: Industry-level finish.
+* Authentication (JWT, bcrypt, user profiles).
+* Dark mode + responsive design.
+* Clean code practices (folder structures, reusable components).
+* Documentation (README, API docs with Swagger/Postman).
+* Deployment (Vercel/Netlify for frontend, Render/Heroku for backend, MongoDB Atlas).
+==> Deliverable: Deployed Smart Home Simulator with polished UI/UX.

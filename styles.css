@@ -1,0 +1,82 @@
+/* General nav + button cursor */
+a, .nav-link, button {
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for sidebar links */
+a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 8px #ff00ff, 0 0 15px #00ffff;
+}
+
+/* Background + dark mode */
+body {
+  background: radial-gradient(circle at top left, #e0e7ff, #ffffff 70%);
+  color: #111;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+html.dark body {
+  background: radial-gradient(circle at top left, #003344, #000 70%);
+  color: #fff;
+}
+
+/* Neon text */
+.text-neon {
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+/* Device cards */
+.device-card, .card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 2px solid;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: inherit;
+}
+html.dark .device-card, html.dark .card {
+  background: rgba(0, 51, 68, 0.8);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3), 
+              0 0 25px rgba(0, 255, 255, 0.3);
+}
+.device-card:hover, .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff00ff, 
+              0 0 25px #00ffff, 
+              0 0 40px #ff00ff;
+}
+
+/* Neon buttons */
+.neon-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  border: 2px solid;
+  background: transparent;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #fff;
+  cursor: pointer;
+}
+.neon-btn.pink   { border-color: #ff00aa; box-shadow: 0 0 10px #ff00aa; color: #ff00aa; }
+.neon-btn.cyan   { border-color: #00ffff; box-shadow: 0 0 10px #00ffff; color: #00ffff; }
+.neon-btn.green  { border-color: #00ff88; box-shadow: 0 0 10px #00ff88; color: #00ff88; }
+.neon-btn.yellow { border-color: #ffee00; box-shadow: 0 0 10px #ffee00; color: #ffee00; }
+
+.neon-btn:hover {
+  background: currentColor;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+/* Glow animation */
+.active-glow {
+  animation: glowPulse 1.5s infinite alternate;
+}
+@keyframes glowPulse {
+  from { box-shadow: 0 0 10px currentColor; }
+  to   { box-shadow: 0 0 30px currentColor, 0 0 60px currentColor; }
+}
